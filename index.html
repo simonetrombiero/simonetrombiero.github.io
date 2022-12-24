@@ -1,7 +1,72 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Chivo Mono" rel="stylesheet">
+
+<body style="background-color:#3b1942; font-family: 'Chivo Mono' !important; color:white; padding-left: 1rem;">
+    <style type="text/css">
+        pre.code {
+            white-space: pre-wrap;
+        }
+
+        pre.code:before {
+            counter-reset: listing;
+        }
+
+        pre.code code {
+            counter-increment: listing;
+        }
+
+        pre.code code:before {
+            content: counter(listing) ". ";
+            width: 8em;
+            /* doesn't work */
+            padding-left: auto;
+            /* doesn't work */
+            margin-left: auto;
+            /* doesn't work */
+            text-align: right;
+            /* doesn't work */
+            opacity: 0.3;
+        }
+    </style>
+    <h1>
+        <span style="color:#00fffb">&lt;</span>
+        <span style="color:#e67727">resume</span>
+        <span style="color:#00fffb">&gt;</span>
+    </h1>
+
+    <h2>Simone Trombiero</h2>
+    <p> Software Engineer Developer</p>
+
+    <h2>
+        <span style="color:#00fffb">.</span>
+        <span style="color:#e67727">about-me</span>
+    </h2>
+    <pre class="code">
+        <code>Born in 1997</code>
+        <code>Software developer enthusiast</code>
+        <code>In love with graphic design</code>
+    </pre>
+
+    <h2>
+        <span style="color:#00fffb">.</span>
+        <span style="color:#e67727">education</span>
+    </h2>
+    <pre class="code">
+        <code><b>Bachelor Degree in Computer Engineering</b></code>
+        <code><i>Università della Calabria</i></code>
+    </pre>
+    <h2>
+        <span style="color:#00fffb">.</span>
+        <span style="color:#e67727">work-experience</span>
+    </h2>
+
+    <h1>
+        <span style="color:#00fffb">&lt;/</span>
+        <span style="color:#e67727">resume</span>
+        <span style="color:#00fffb">&gt;</span>
+    </h1>
 </body>
+
 </html>
