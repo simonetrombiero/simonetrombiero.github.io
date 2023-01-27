@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<title>C++ Cheat Sheet</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Chivo Mono" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+
+<body style="background-color:#000000; font-family: 'Chivo Mono' !important; color:white; padding-left: 1rem;">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/go.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <style type="text/css">
+        pre{
+            overflow: hidden;
+            
+        }
+        
+        pre.code {
+            white-space: pre-wrap;
+        }
+
+        pre.code:before {
+            counter-reset: listing;
+        }
+
+        pre.code code {
+            counter-increment: listing;
+        }
+
+        pre.code code:before {
+            content: counter(listing) ". ";
+            width: 8em;
+            /* doesn't work */
+            padding-left: auto;
+            /* doesn't work */
+            margin-left: auto;
+            /* doesn't work */
+            text-align: right;
+            /* doesn't work */
+            opacity: 0.3;
+        }
+
+        #outputFigDisplay {
+            padding-top: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .fig {
+            font-size: 10pt;
+            font-family: Monospace;
+            white-space: pre;
+        }
+
+        .container {
+            -webkit-column-count: 3;
+            /* Chrome, Safari, Opera */
+            -moz-column-count: 3;
+            /* Firefox */
+            column-count: 3;
+            -webkit-column-gap: .5rem;
+            /* Chrome, Safari, Opera */
+            -moz-column-gap: .5rem;
+            /* Firefox */
+            column-gap: .5rem;
+        }
+
+        .note {
+            width: calc(100% / 1);
+        }
+
+        pre code.hljs {
+            padding: 0rem;
+        }
+
+        .hljs {
+            background: #000000;
+            color: rgb(255, 255, 255);
+        }
+
+        .head{
+            color: yellow !important;
+        }
+
+        .container-pre{
+            text-align: center;
+        }
+        .container-pre pre{
+            display: inline-block;
+            text-align: left;
+        }
+
+    </style>
+    <div class="container-pre">
+        <pre>
+                         _                _       _               _   
+                        | |              | |     | |             | |  
+  ___ _ __  _ __     ___| |__   ___  __ _| |_ ___| |__   ___  ___| |_ 
+ / __| '_ \| '_ \   / __| '_ \ / _ \/ _` | __/ __| '_ \ / _ \/ _ \ __|
+| (__| |_) | |_) | | (__| | | |  __/ (_| | |_\__ \ | | |  __/  __/ |_ 
+ \___| .__/| .__/   \___|_| |_|\___|\__,_|\__|___/_| |_|\___|\___|\__|
+     | |   | |                                                        
+     |_|   |_|                                                        
+        </pre>
+    </div>    
+
+<div class="container" style="display: block;">
+    <div class="note hljs" style="display: block;">
+        <pre><code>
+    +------------- oop basics --------------+
+    |                                       |
+    | class derived : public base {         |
+    |   private:                            |
+    |     std::string s;                    |
+    |   public:                             |
+    |     const std::string& get() const{   |
+    |       return s;                       |
+    |     }                                 |
+    | };                                    |
+    |                                       |
+    |                                       |
+    +---------------------------------------+
+        </code></pre>
+    </div>
+    <div class="note hljs" style="display: block;">
+        <pre><code>
+    +--------- virtual destructor ----------+
+    |                                       |
+    | class base  {                         |
+    |   public:                             |
+    |     ~base(){}                         |
+    | };                                    |
+    | classe derived : public base{         |
+    |   public:                             |
+    |     derived(){}                       |
+    | };                                    |
+    |                                       |
+    |                                       |
+    +---------------------------------------+
+        </code></pre>
+    </div>
+    <div class="note hljs" style="display: block;">
+        <pre><code>
+    +------- exception definition ----------+
+    | class custom_except : std::exception{ |
+    |   public:                             |
+    |     custom_except(const string& m){   |
+    |       message = m                     |
+    |     }                                 |
+    |     virtual const char* what() const{ |
+    |       return message.c_str();         |
+    |     }                                 |
+    |   private:                            |
+    |     string message;                   |
+    | };                                    |
+    +---------------------------------------+
+        </code></pre>
+    </div>
+    <div class="note hljs" style="display: block;">
+        <pre><code>
+    +-------- stl data structure -----------+
+    |                                       |
+    | std::vector // dynamic array          |
+    | std::list // doubly-linked list       |
+    | std::stack // stack                   |
+    | std::queue // queue                   |
+    | std::priority_queue // priority queue |
+    | std::set // set                       |
+    | std::map // map or dictionary         |
+    | std::unordered_set // hash set        |
+    | std::unordered_map // hash map        |
+    |                                       |
+    +---------------------------------------+
+        </code></pre>
+    </div>
+    <div class="note hljs" style="display: block;">
+        <pre><code>
+    +----------- smart pointers ------------+
+    |                                       |
+    | std::shared_ptr&lt;int&gt; ptr1 =           |
+    |   std::make_shared&lt;int&gt;(5);           |
+    | std::shared_ptr&lt;int&gt; ptr2 = ptr1;     |
+    |                                       |
+    | std::unique_ptr&lt;int&gt; ptr1 =           |
+    |   std::make_unique&lt;int&gt;(5);           |
+    | std::unique_ptr&lt;int&gt; ptr2 =           |
+    |   std::move(ptr1);                    |
+    |                                       |
+    |                                       |
+    +---------------------------------------+
+        </code></pre>
+    </div>
+    <div class="note hljs" style="display: block;">
+        <pre><code>
+    +---------- template class -------------+
+    |                                       |
+    |                                       |
+    | template&lt;typename T&gt;                  |
+    | class optional{                       |
+    |   private:                            |
+    |     T _value;                         |
+    |   public:                             |
+    |     T value() {return _value;}        |
+    | };                                    |
+    |                                       |
+    |                                       |
+    +---------------------------------------+
+        </code></pre>
+    </div>
+    <div class="note hljs" style="display: block;">
+        <pre><code>
+    +--------- lambda & functor ------------+
+    |                                       |
+    |                                       |
+    | auto square =                         |
+    |   [&](int x) { return x * x; };       |
+    |                                       |
+    | auto lambda = [this, x](){ ... };     |
+    |                                       |
+    | std::function&lt;int()&gt; add =            |
+    |   [a]() { return a+2; };              |
+    |                                       |
+    |                                       |
+    +---------------------------------------+
+        </code></pre>
+    </div>
+    <div class="note hljs" style="display: block;">
+        <pre><code>
+    +------------ concurrency --------------+
+    |                                       |
+    | // Using std::thread                  |
+    | std::thread t1(printHello);           |
+    | t1.join();                            |
+    |                                       |
+    | // Using std::async                   |
+    | std::future&lt;void&gt; f =                 |
+    |   std::async(std::launch::async,      |
+    |     printHello);                      |
+    | f.wait();                             |
+    |                                       |
+    +---------------------------------------+
+        </code></pre>
+    </div>
+    <div class="note hljs" style="display: block;">
+        <pre><code>
+    +-------------- iterators --------------+
+    |                                       |
+    | std::vector&lt;int&gt; myVector{ ... };     |
+    |                                       |
+    | // Iterator to traverse the vector    |
+    | std::vector&lt;int&gt;::iterator it;        |
+    | for (it = myVector.begin(); it        |
+    |   != myVector.end(); ++it) {          |
+    |   std::cout << *it << " ";            |
+    | }                                     |
+    |                                       |
+    |                                       |
+    +---------------------------------------+
+        </code></pre>
+    </div>
+</div>
+</body>
